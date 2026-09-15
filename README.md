@@ -1,169 +1,93 @@
-# TaskFlow API
+# 🚀 TaskFlow API
 
-## 💡 Problema
-Sistemas de e-commerce precisam gerenciar usuários, pedidos e produtos de forma eficiente e escalável.
+API REST para gerenciamento de tarefas, usuários, produtos, categorias e pedidos, desenvolvida com Java e Spring Boot.
 
-## ✅ Solução
-Esta API fornece uma base estruturada para gerenciamento de pedidos, com arquitetura em camadas e boas práticas REST.
+## 🛠️ Tecnologias
 
-## 📌 Visão Geral
+- ☕ Java
+- 🌱 Spring Boot
+- 🗄️ Spring Data JPA
+- 🐬 MySQL
+- 🐘 PostgreSQL
+- 🔧 Maven
+- 🔗 Git e GitHub
 
-O **TaskFlow API** é um projeto backend que simula um sistema de e-commerce, com foco em:
+## 📌 Sobre o projeto
 
-- Estruturação em camadas (Resource → Service → Repository)
-- Modelagem de domínio com JPA
-- Tratamento de exceções padronizado
-- Boas práticas REST
+O TaskFlow API foi desenvolvido para praticar conceitos de desenvolvimento Back-End com Java e Spring Boot, incluindo criação de APIs REST, persistência de dados, organização em camadas e aplicação de regras de negócio.
 
-## 🚀 Tecnologias Utilizadas
+O projeto também foi utilizado para consolidar conhecimentos em JPA, relacionamentos entre entidades e operações de CRUD.
 
-- Java 17+
-- Spring Boot
-- Spring Data JPA
-- Hibernate
-- Maven
-- H2 Database (ambiente de teste)
-- PostgreSQL / MySQL (produção - configurável)
+## ⚙️ Funcionalidades
 
-## 📂 Estrutura do Projeto
+- 👤 Gerenciamento de usuários
+- 📦 Gerenciamento de produtos
+- 🏷️ Gerenciamento de categorias
+- 🛒 Gerenciamento de pedidos
+- 🔗 Relacionamentos entre entidades
+- 💾 Persistência de dados com JPA/Hibernate
+- 🌐 Endpoints REST para acesso aos recursos
+- 🧠 Aplicação de regras de negócio
 
-```
-src/main/java/com/educandoweb/course
+## 🏗️ Organização
 
-├── config
-│   └── TestConfig.java
-├── entities
-│   ├── enums
-│   │   └── OrderStatus.java
-│   ├── pk
-│   │   └── OrderItemPK.java
-│   ├── Category.java
-│   ├── Order.java
-│   ├── OrderItem.java
-│   ├── Payment.java
-│   ├── Product.java
-│   └── User.java
-├── repositories
-│   ├── CategoryRepository.java
-│   ├── OrderItemRepository.java
-│   ├── OrderRepository.java
-│   ├── ProductRepository.java
-│   └── UserRepository.java
-├── resources (controllers)
-│   ├── exceptions
-│   │   ├── ResourceExceptionHandler.java
-│   │   └── StandardError.java
-│   ├── CategoryResource.java
-│   ├── OrderResource.java
-│   ├── ProductResource.java
-│   └── UserResource.java
-├── services
-│   ├── exceptions
-│   │   ├── DatabaseException.java
-│   │   └── ResourceNotFoundException.java
-│   ├── CategoryService.java
-│   ├── OrderService.java
-│   ├── ProductService.java
-│   └── UserService.java
-└── CourseApplication.java
-```
+O projeto segue uma organização em camadas, buscando separar as responsabilidades da aplicação e facilitar sua manutenção e evolução.
 
-## 🧠 Arquitetura
+Principais componentes:
 
-- **Resource (Controller)** → Requisições HTTP
-- **Service** → Regras de negócio
-- **Repository** → Acesso a dados (JPA)
-- **Entities** → Modelo de domínio
+- **Controller** — exposição dos endpoints da API
+- **Service** — regras e lógica de negócio
+- **Repository** — acesso e persistência dos dados
+- **Entities** — representação dos dados e relacionamentos
 
-## 🔗 Endpoints Principais
-
-### Usuários
-- GET /users
-- GET /users/{id}
-- POST /users
-- DELETE /users/{id}
-
-### Produtos
-- GET /products
-- GET /products/{id}
-
-### Categorias
-- GET /categories
-- GET /categories/{id}
-
-### Pedidos
-- GET /orders
-- GET /orders/{id}
-
-## ⚙️ Como Executar
+## ▶️ Como executar
 
 ### Pré-requisitos
-- Java 17+
-- Maven
 
-### Passos
+- Java instalado
+- Maven instalado
+- MySQL ou PostgreSQL configurado
 
+### Clonando o projeto
+
+```bash
+git clone https://github.com/fabricio-vianna/taskflow-api.git
 ```
-git clone https://github.com/seu-usuario/taskflow-api.git
+
+Entre na pasta:
+
+```bash
 cd taskflow-api
+```
+
+Execute o projeto:
+
+```bash
 ./mvnw spring-boot:run
 ```
 
-Acesse: http://localhost:8080
+No Windows, caso necessário:
 
-## 🧪 Ambiente de Teste
-
-- Banco H2 configurado
-- Console: http://localhost:8080/h2-console
-
-## ⚠️ Tratamento de Exceções
-
-Exemplo de resposta:
-
-```json
-{
-  "timestamp": "...",
-  "status": 404,
-  "error": "Resource not found",
-  "message": "...",
-  "path": "/users/1"
-}
+```bash
+mvnw.cmd spring-boot:run
 ```
 
-## 📊 Modelo de Domínio
+> Configure as credenciais e informações do banco de dados de acordo com o arquivo de configuração do projeto antes de executar.
 
-- User
-- Order
-- Product
-- Category
-- OrderItem
-- Payment
+## 🔮 Possíveis melhorias
 
-Relacionamentos:
+Algumas funcionalidades que podem ser adicionadas futuramente:
 
-- User → Orders (1:N)
-- Order → OrderItem (1:N)
-- Product ↔ Category (N:N)
-- Order → Payment (1:1)
+- 🔐 Autenticação e autorização com Spring Security e JWT
+- 📄 Paginação de resultados
+- 📚 Documentação da API com Swagger/OpenAPI
+- ☁️ Deploy em ambiente de nuvem
+- 🧪 Ampliação da cobertura de testes
 
 ## 🎯 Objetivo
 
-Consolidar conhecimentos em:
+Projeto desenvolvido com foco no aprendizado e na evolução prática em desenvolvimento Back-End Java, aplicando conceitos estudados em programação orientada a objetos, Spring Boot, persistência de dados e desenvolvimento de APIs REST.
 
-- Spring Boot
-- APIs REST
-- JPA/Hibernate
-- Arquitetura backend profissional
+---
 
-## 📌 Melhorias Futuras
-
-- Spring Security + JWT
-- Paginação
-- Swagger/OpenAPI
-- Deploy em cloud
-- Testes automatizados
-
-## 👨‍💻 Autor
-
-Desenvolvido por Fabricio Vianna
-
+💻 Desenvolvido por **Fabricio Vianna**
